@@ -2,12 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <h3>Usuário: <%= @message.user.name %></h3>
-    <h3>Módulo: <%= @message.component.title %></h3>
+    <table class="table text-center table-bordered">
+      <tr>
+        <td><h3>Usuário: <%= @message.user.name %></h3></td>
+        <td><h3>Módulo: <%= @message.component.title %></h3></td>
+      </tr>
+    </table>
+
+
 
     <%= f.input :user_id, as: :hidden %>
     <%= f.input :component_id, as: :hidden %>
-    <%= f.input :body %>
+
+    <%= f.input :body, label: 'Digite a sua mensagem' %>
   </div>
 
   <div class="form-actions">
