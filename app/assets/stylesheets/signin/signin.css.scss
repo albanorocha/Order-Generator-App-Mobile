@@ -1,0 +1,99 @@
+body, html {
+  height: 100%;
+  width: 100%;
+  background-color: #B456CC;
+}
+
+.onepage {
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #fff;
+  background: image-url("header2.png") no-repeat center center;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small {
+  color: #e7e9ec;
+}
+h1,
+h2,
+h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+h4,
+h5,
+h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+h6 {
+  font-weight: normal;
+}
+h1,
+.h1 {
+  font-size: 80px;
+}
+h2,
+.h2 {
+  font-size: 63px;
+}
+h3,
+.h3 {
+  font-size: 30px;
+}
+h4,
+.h4 {
+  font-size: 20px;
+}
+
+.authform form{
+  background-color: rgba(76, 0, 102, 0.57);
+  border: 0px;
+}
+
+.authform a {
+  color: #ccc;
+}
+
+.authform .button {
+  color: #ffffff;
+  background-color: #611BBD;
+  border-color: #130269;
+}
+
+.btn-primary:hover, .submit:hover, .authform .button:hover, .button-xs:hover {
+  color: #ffffff;
+  background-color: #49247A;
+  border-color: #130269;
+}
+
