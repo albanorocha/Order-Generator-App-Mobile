@@ -1,0 +1,23 @@
+<div class="nested-fields">
+  <div class="panel panel-success">
+    <div class="panel-body">
+      <div class="field">
+        <%= f.input :title %>
+      </div>
+      <div class="field">
+        <%= f.input :subtitle %>
+      </div>
+      <div class="field">
+        <%= f.input :description %>
+      </div>
+      <div class="field">
+        <%= f.input :price %>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="text-right">
+        <%= link_to_remove_association "Delete Item", f, { class: 'btn btn-danger' } %>
+      </div>
+    </div>
+  </div>
+</div>

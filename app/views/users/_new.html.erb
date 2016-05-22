@@ -1,0 +1,34 @@
+<div class="authform">
+  <%= simple_form_for(@user) do |f| %>
+    <h3>Novo Usuário</h3>
+    <%= f.error_notification %>
+    <div class="form-group">
+      <%= f.input :name %>
+    </div>
+    <div class="form-group">
+      <%= f.input :company %>
+    </div>
+    <div class="form-group">
+      <%= f.input :username %>
+    </div>
+    <div class="form-group">
+      <%= f.input :email %>
+    </div>
+    <div class="form-group">
+      <%= f.input :password %>
+    </div>
+    <div class="form-group">
+      <%= f.input :password_confirmation %>
+    </div>
+    <div class="form-group">
+      <%= f.input :role, :collection => User.roles, :label_method => :first,
+          :value_method => :first , :label => "Tipo" ,:include_blank => false %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'button right'  %>
+    </div>
+  <% end %>
+
+</div>
+

@@ -1,0 +1,159 @@
+<div class="intro-header">
+<div class="col-xs-12 text-center abcen1">
+  <h1 class="h1_home">
+    Olá, <%= !@order.user.nil? ? @order.user.name.split(' ').first : "Unknown" %> !
+  </h1>
+  <h2 class="h3_home">
+    <%= !@order.user.nil? ? @order.user.company : "Unknown" %>
+  </h2>
+  <h3 class="h3_home">
+    Esta é a proposta de orçamento: <b> <%= @order.code %> </b> de <b> <%= I18n.l @order.starting_at, :format => :long %></b>.
+  </h3>
+  <br>
+  <p> <i class="fa fa-asterisk" aria-hidden="true"></i> Válido até <%= I18n.l @order.ending_at, :format => :long %>.</p>
+
+</div>
+    <!-- /.container -->
+<div class="col-xs-12 text-center abcen wow fadeIn">
+  <div class="button_down ">
+    <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis">
+      <%= image_tag("circle.png", class: "img_scroll", alt: "") %>
+    </a>
+  </div>
+</div>
+</div>
+
+<div id="whatis" class="order-header">
+  <div class="container text-left">
+   <hr class="star-light">
+   <table class="table table-bordered">
+     <tr>
+        <td>
+          <b>Cliente:</b> <br>
+          <%= !@order.user.nil? ? @order.user.name : "Unknown" %>
+        </td>
+        <td colspan="2">
+          <b>Empresa:</b> <br>
+          <%= !@order.user.nil? ? @order.user.company : "Unknown" %></td>
+     </tr>
+     <tr>
+       <td>
+         <b>Orçamento:</b> <br>
+         <%= @order.code %>
+       </td>
+       <td>
+         <b>Data da proposta:</b> <br>
+         <%= I18n.l @order.starting_at, :format => :long %>
+       </td>
+       <td>
+         <b>Valido até:</b> <br>
+         <%= I18n.l @order.ending_at, :format => :long %>
+       </td>
+     </tr>
+   </table>
+  </div>
+</div>
+
+<div id="blocks" class="container">
+  <% @order.blocks.each do |block| %>
+    <div class="page-header">
+      <h3> <%= block.name %>  </h3>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h5> <%= block.description %></h5>
+      </div>
+    </div>
+    <br>
+    <% block.components.each.with_index do |component, i| %>
+      <% if i%3 == 0 or i == 0 %>
+        <div class="row">
+      <% end %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3>
+                <%= component.title %>
+                <%= link_to new_message_path(user: current_user, component: component), title: "Envie-nos uma menssagem se tiver dúvida ou algum comentário sobre o módulo." do %>
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <% end %>
+
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <h4> <%= component.head %></h4>
+              <p> <%= component.description %></p>
+
+              <div class="list-group">
+              <% component.items.each do |item| %>
+                <a class="list-group-item">
+                  <h4 class="list-group-item-heading"> <%= item.title %>  </h4>
+                  <p class="list-group-item-text"> <%= item.description %></p>
+                </a>
+              <% end %>
+              </div>
+
+            </div>
+
+            <div class="panel-footer">
+              <p> <%= component.footer.html_safe %> </p>
+              <p> <%= component.price %> </p>
+            </div>
+          </div>
+        </div>
+
+      <% if (i+1)%3 == 0 %>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <hr class="star-primary">
+
+  <div class="page-header">
+    <h3>Quero meu projeto!!!</h3>
+  </div>
+  <div id="confirmacao" class="jumbotron">
+    <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-center">
+        Você está a um clique de começar a desenvolver uma solução digital viva com a CRAOSX.
+      </h3>
+      <br><br><br>
+      <div class="text-center">
+        <%= link_to approve_order_path(@order), method: :put, class: "btn btn-lg btn-warning" do %>
+           Quero meu projeto <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag("order.png", class: "", alt: "") %>
+    </div>
+    </div>
+  </div>
+
+  <% if current_user.try(:admin?) %>
+    <div id="order-admin" class="row well">
+      <% if @order.enable %>
+        <i class="enabled fa fa-eye fa-2x" aria-hidden="true"> Habilitado </i>
+      <% else %>
+        <i class="disabled fa fa-eye-slash fa-2x" aria-hidden="true"> Desabilitado </i>
+      <% end %>
+      |
+      <% if @order.approved %>
+        <i class="enabled fa fa-check-circle-o fa-2x" aria-hidden="true"> Aprovado </i>
+      <% else %>
+        <i class="disabled fa fa-check-circle-o fa-2x" aria-hidden="true"> Aguardando Aprovação </i>
+      <% end %>
+
+      <div class="pull-right">
+        <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-warning" %> |
+        <%= link_to 'Back', orders_path, class: "btn btn-default" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="well">
+      <%= simple_form_for(@order ) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.association :user, include_blank: "Choose a User..." %>
+          <%= f.input :code %>
+          <%= f.input :starting_at %>
+          <%= f.input :ending_at %>
+          <%= f.input :order_type, :collection => Order.order_types, :label_method => :first,
+              :value_method => :first , :label => "Tipo" ,:include_blank => false %>
+          <%= f.input :enable %>
+          <%= f.input :approved %>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h3>Blocos</h3>
+            <div id="blocks">
+              <%= f.fields_for :blocks do |block| %>
+                <%= render 'block_fields', f: block %>
+              <% end %>
+
+              <div class="links">
+                <%= link_to_add_association 'Novo Bloco', f, :blocks, { class: 'btn btn-success' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

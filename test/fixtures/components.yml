@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  block_id: 
+  title: MyString
+  head: MyString
+  description: MyText
+  footer: MyString
+  price: 9.99
+
+two:
+  block_id: 
+  title: MyString
+  head: MyString
+  description: MyText
+  footer: MyString
+  price: 9.99

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  code: MyString
+  enable: false
+  starting_at: 2016-05-20
+  ending_at: 2016-05-20
+  order_type: 1
+
+two:
+  user_id: 
+  code: MyString
+  enable: false
+  starting_at: 2016-05-20
+  ending_at: 2016-05-20
+  order_type: 1

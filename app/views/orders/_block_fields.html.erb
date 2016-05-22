@@ -1,0 +1,35 @@
+<div class="nested-fields">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="field">
+        <%= f.input :name %>
+      </div>
+      <div class="field">
+        <%= f.input :description %>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Módulos</h3>
+          <div id="components">
+            <%= f.fields_for :components do |component| %>
+              <%= render 'component_fields', f: component %>
+            <% end %>
+
+            <div class="links">
+              <%= link_to_add_association 'Add módulo', f, :components, { class: 'btn btn-success' } %>
+            </div>
+
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="text-right">
+        <%= link_to_remove_association "Delete Block", f, { class: 'btn btn-danger' } %>
+      </div>
+    </div>
+  </div>
+</div>

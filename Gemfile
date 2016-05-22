@@ -20,6 +20,8 @@ gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+gem "cocoon"
+gem "font-awesome-rails"
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

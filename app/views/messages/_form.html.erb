@@ -1,0 +1,16 @@
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <h3>Usuário: <%= @message.user.name %></h3>
+    <h3>Módulo: <%= @message.component.title %></h3>
+
+    <%= f.input :user_id, as: :hidden %>
+    <%= f.input :component_id, as: :hidden %>
+    <%= f.input :body %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
