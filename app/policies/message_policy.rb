@@ -23,6 +23,14 @@ class MessagePolicy < ApplicationPolicy
     user.admin? or (user == record.user)
   end
 
+  def new2?
+    user.admin?
+  end
+
+  def create2?
+    user.admin?
+  end
+
   def show?
     user.admin? or (user == record.user)
   end

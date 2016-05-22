@@ -27,3 +27,11 @@ body{
 body > .container {
     padding: 60px 15px 0;
 }
+
+.order-list .enabled{
+  color: #5cb85c;
+}
+
+.order-list .disabled{
+  color: #d9534f;
+}

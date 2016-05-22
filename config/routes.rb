@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :messages
+  resources :messages do
+    collection do
+      get 'new2'
+      post 'create2'
+    end
+  end
   resources :orders do
     member do
       put 'approve'

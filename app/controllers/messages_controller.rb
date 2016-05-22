@@ -25,6 +25,13 @@ class MessagesController < ApplicationController
     authorize @message
   end
 
+  # GET /messages/new2
+  def new2
+    @message = Message.new
+
+    authorize @message
+  end
+
   # GET /messages/1/edit
   def edit
     authorize @message
@@ -47,6 +54,25 @@ class MessagesController < ApplicationController
       end
     end
   end
+
+  # POST /messages
+  # POST /messages.json
+  def create2
+    @message = Message.new(message_params)
+
+    authorize @message
+
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
+        format.json { render :show, status: :created, location: messages_path }
+      else
+        format.html { render :new2 }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   # PATCH/PUT /messages/1
   # PATCH/PUT /messages/1.json

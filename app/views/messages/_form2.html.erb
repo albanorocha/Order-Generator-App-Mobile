@@ -1,0 +1,13 @@
+<%= simple_form_for(@message, url:create2_messages_path(@message)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :component, collection: Order.all, as: :grouped_select, group_method: :components, group_label_method: :code_and_user %>
+    <%= f.input :body, label: 'Digite a sua mensagem' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

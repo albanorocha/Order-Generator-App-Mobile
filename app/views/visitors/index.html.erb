@@ -5,20 +5,21 @@
   <h3>Bem Vindo: <%= current_user.name %></h3>
 </div>
 <h4> Orçamentos </h4>
-
-<table class="table table-hover", style="background:#fff">
+<div class="table-responsive">
+<table class="table table-hover table-condensed table-striped order-list", style="background:#fff">
   <thead>
     <tr>
       <% if current_user.try(:admin?) %>
       <th>User</th>
       <% end %>
       <th>Code</th>
-      <% if current_user.try(:admin?) %>
-      <th>Enable</th>
-      <%end%>
       <th>Starting at</th>
       <th>Ending at</th>
       <th>Order type</th>
+      <% if current_user.try(:admin?) %>
+      <th class="text-center">Habilitado</th>
+      <th class="text-center">Aprovado</th>
+      <%end%>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,21 +31,47 @@
         <td><%= order.user.name %></td>
         <%end%>
         <td><%= order.code %></td>
-        <% if current_user.try(:admin?) %>
-        <td><%= order.enable %></td>
-        <%end%>
         <td><%= order.starting_at %></td>
         <td><%= order.ending_at %></td>
         <td><%= order.order_type.humanize %></td>
-        <td><%= link_to 'Ver', order %></td>
         <% if current_user.try(:admin?) %>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-center">
+        <% if order.enable %>
+          <i class="enabled fa fa-eye" aria-hidden="true"> </i>
+        <% else %>
+          <i class="disabled fa fa-eye-slash" aria-hidden="true"> </i>
+        <% end %>
+        </td>
+        <td class="text-center">
+        <% if order.approved %>
+          <i class="enabled fa fa-check-circle-o" aria-hidden="true"> </i>
+        <% else %>
+          <i class="disabled fa fa-times-circle-o" aria-hidden="true"> </i>
+        <% end %>
+        </td>
+        <% end %>
+        <td class="text-center">
+          <%= link_to order, title: "Ver Orçamento" do  %>
+          <i class="enabled fa fa-file-text-o" aria-hidden="true"> </i>
+          <% end %>
+        </td>
+        <% if current_user.try(:admin?) %>
+        <td class="text-center">
+          <%= link_to edit_order_path(order) do%>
+            <i class="danger fa fa-pencil-square-o" aria-hidden="true"> </i>
+          <% end %>
+        </td>
+        <td class="text-center">
+          <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+            <i class="disabled fa fa-times" aria-hidden="true"> </i>
+          <% end %>
+        </td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 </div>
 </div>
 </div>

@@ -5,11 +5,16 @@ class Order < ActiveRecord::Base
 
   belongs_to :user
   has_many :blocks, dependent: :destroy
+  has_many :components, through: :blocks
 
   accepts_nested_attributes_for :blocks, reject_if: :all_blank, allow_destroy: true
 
 
   def set_default_type
     self.order_type ||= :proposta
+  end
+
+  def code_and_user
+    "#{code} - #{user.name unless user.nil?}"
   end
 end
