@@ -82,13 +82,13 @@
             </div>
 
             <div class="panel-body">
-              <h4> <%= component.head %></h4>
+              <h3 class="text-center"> <%= component.head %></h3>
               <p> <%= component.description %></p>
 
               <div class="list-group">
               <% component.items.each do |item| %>
                 <a class="list-group-item">
-                  <h4 class="list-group-item-heading"> <%= item.title %>  </h4>
+                  <h4 class="list-group-item-heading"> <%= item.title %> <b><small text><%= item.subtitle %></small> </b> </h4>
                   <p class="list-group-item-text"> <%= item.description %></p>
                 </a>
               <% end %>
@@ -96,7 +96,7 @@
 
             </div>
 
-            <div class="panel-footer">
+            <div class="panel-footer text-center">
               <p> <%= component.footer.html_safe %> </p>
               <p> <%= component.price %> </p>
             </div>
