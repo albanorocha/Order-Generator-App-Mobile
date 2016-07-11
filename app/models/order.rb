@@ -34,7 +34,7 @@ class Order < ActiveRecord::Base
       block.components.each do |component|
         new_component = component.dup
 
-        component.items do |item|
+        component.items.each do |item|
           new_item = item.dup
           new_component.items << new_item
         end
