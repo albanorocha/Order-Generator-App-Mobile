@@ -1,22 +1,21 @@
 <div class="nested-fields">
   <div class="panel panel-success">
     <div class="panel-body">
-      <div class="field">
-        <%= f.input :title %>
+      <div class="row">
+        <div class="col-lg-6 field">
+          <%= f.input :title, placeholder: "Título", label: false %>
+        </div>
+        <div class="col-lg-6 field">
+          <%= f.input :subtitle, placeholder: "Subtítulo", label: false  %>
+        </div>
       </div>
       <div class="field">
-        <%= f.input :subtitle %>
-      </div>
-      <div class="field">
-        <%= f.input :description %>
-      </div>
-      <div class="field">
-        <%= f.input :price %>
+        <%= f.input :description, placeholder: "Descrição do item", label: false  %>
       </div>
     </div>
     <div class="panel-footer">
       <div class="text-right">
-        <%= link_to_remove_association "Delete Item", f, { class: 'btn btn-danger' } %>
+        <%= link_to_remove_association "Delete Item...", f, { class: 'btn btn-danger' } %>
       </div>
     </div>
   </div>

@@ -1,14 +1,14 @@
-<div class="nested-fields">
+<div class="col-md-4 nested-fields">
   <div class="panel panel-info">
     <div class="panel-body">
       <div class="field">
-        <%= f.input :title %>
+        <%= f.input :title, placeholder: "Título", label: false %>
       </div>
       <div class="field">
-        <%= f.input :head %>
+        <%= f.input :head, placeholder: "Destaque", label: false, input_html: {:data => {toggle: "tooltip"}, title:"Exibe um frase de destaque para o módulo."} %>
       </div>
       <div class="field">
-        <%= f.input :description %>
+        <%= f.input :description, placeholder: "Descrição ...", label: false %>
       </div>
 
       <div class="row">
@@ -29,10 +29,10 @@
       <br>
 
       <div class="field">
-        <%= f.input :footer %>
+        <%= f.input :footer, placeholder: "Rodapé do módulo... ", input_html: {:data => {toggle: "tooltip"}, title:"Aceita tags em HTML"}, label: false %>
       </div>
       <div class="field">
-        <%= f.input :price %>
+        <%= f.input :price, placeholder: "Preço do Módulo", label: false %>
       </div>
     </div>
     <div class="panel-footer">
