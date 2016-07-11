@@ -1,17 +1,18 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
-
-<h1>Lista de Mensagens</h1>
+<div class="row center">
+<div class="col-sm-12 col-md-12">
+<h2>Lista de Mensagens</h2>
+<hr>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>User</th>
+      <th>Usuário</th>
       <th>Orçamento</th>
-      <th>Component</th>
-      <th>Body</th>
+      <th>Componente</th>
+      <th>Ítem</th>
       <% if current_user.try(:admin?) %>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
       <%end%>
     </tr>
   </thead>
@@ -24,17 +25,28 @@
         <td><%= message.component.title %></td>
         <td><%= message.body %></td>
         <% if current_user.try(:admin?) %>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td>
+          <%= link_to edit_message_path(message) do%>
+            <i class="danger fa fa-pencil-square-o" aria-hidden="true"> </i>
+          <%end%>
+        </td>
+        <td><%= link_to message, method: :delete, data: { confirm: 'Tem Certeza?' } do %>
+           <i class="disabled fa fa-times" aria-hidden="true"> </i>
+           <%end%>
+        </td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
+<div class="text-center">
 <% if current_user.try(:admin?) %>
-<%= link_to 'New Message', new2_messages_path %>
+<%= link_to 'Nova Mensagem', new2_messages_path, class:"btn btn-lg btn-block btn-success" %>
 <% end %>
+<hr>
+</div>
+
+</div>
+</div>
 </div>

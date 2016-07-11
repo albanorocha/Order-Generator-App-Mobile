@@ -94,10 +94,11 @@
             <div class="panel-heading">
               <h3>
                 <%= component.title %>
-                <%= link_to new_message_path(user: current_user, component: component), title: "Envie-nos uma menssagem se tiver dúvida ou algum comentário sobre o módulo." do %>
-                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <div class="pull-right">
+                <%= link_to new_message_path(user: current_user, component: component), title: "Envie-nos uma menssagem se tiver dúvida ou algum comentário sobre o módulo.", class: "btn btn-default btn-xs " do %>
+                  <i class="fa fa-commenting-o" aria-hidden="true"> </i> Mensagem
                 <% end %>
-
+                </div>    
               </h3>
             </div>
 
@@ -144,7 +145,7 @@
       <br><br><br>
       <div class="text-center">
         <%= link_to approve_order_path(@order), method: :put, class: "btn btn-lg btn-warning" do %>
-           Quero meu projeto <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+           <b>Aprovar Meu Projeto </b><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
         <% end %>
       </div>
     </div>
@@ -155,23 +156,24 @@
   </div>
 
   <% if current_user.try(:admin?) %>
+  <div class="col-md-12">
     <div id="order-admin" class="row well">
       <% if @order.enable %>
-        <i class="enabled fa fa-eye fa-2x" aria-hidden="true"> Habilitado </i>
+        <i class="enabled fa fa-eye btn fa-2x" aria-hidden="true">  </i> Habilitado
       <% else %>
-        <i class="disabled fa fa-eye-slash fa-2x" aria-hidden="true"> Desabilitado </i>
+        <i class="disabled fa fa-eye-slash btn fa-2x" aria-hidden="true"> </i> Desabilitado
       <% end %>
-      |
       <% if @order.approved %>
-        <i class="enabled fa fa-check-circle-o fa-2x" aria-hidden="true"> Aprovado </i>
+        <i class="enabled fa fa-check-circle-o btn fa-2x" aria-hidden="true"></i> Aprovado
       <% else %>
-        <i class="disabled fa fa-times-circle-o fa-2x" aria-hidden="true"> Aguardando Aprovação </i>
+        <i class="disabled fa fa-times-circle-o btn fa-2x" aria-hidden="true"> </i> Aguardando Aprovação
       <% end %>
 
       <div class="pull-right">
-        <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-warning" %> |
-        <%= link_to 'Back', orders_path, class: "btn btn-default" %>
+        <%= link_to 'Voltar', orders_path, class: "btn btn-default" %>
+        <%= link_to 'Editar', edit_order_path(@order), class: "btn btn-warning" %>
       </div>
+    </div>
     </div>
   <% end %>
 </div>

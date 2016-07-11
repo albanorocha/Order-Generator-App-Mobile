@@ -46,7 +46,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message.component.block.order, notice: 'Message was successfully created.' }
+        format.html { redirect_to @message.component.block.order, notice: 'Mensagem foi criado com êxito.' }
         format.json { render :show, status: :created, location: @message.component.block.order }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_path, notice: 'Mensagem foi criado com sucesso.' }
         format.json { render :show, status: :created, location: messages_path }
       else
         format.html { render :new2 }
@@ -81,7 +81,7 @@ class MessagesController < ApplicationController
     authorize @message
     respond_to do |format|
       if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message, notice: 'Mensagem foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }
@@ -96,7 +96,7 @@ class MessagesController < ApplicationController
     authorize @message
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to messages_url, notice: 'Mensagem foi Exluída com sucesso.' }
       format.json { head :no_content }
     end
   end

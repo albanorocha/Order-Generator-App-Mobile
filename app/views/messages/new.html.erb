@@ -1,7 +1,16 @@
 <div class="container">
-<h1>Nova Mensagem</h1>
+<div class="row center">
+<div class="col-sm-12 col-md-12">	
+<h2>Nova Mensagem</h2>
+<hr>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', order_path(@message.component.block.order) %>
+<div class="text-center">
+<hr>
+<%= link_to 'Voltar', order_path(@message.component.block.order), class: "btn btn-default" %>
+</div>
+
+</div>
+</div>
 </div>

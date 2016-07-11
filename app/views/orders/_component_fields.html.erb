@@ -8,7 +8,7 @@
         <%= f.input :head, placeholder: "Destaque", label: false, input_html: {:data => {toggle: "tooltip"}, title:"Exibe um frase de destaque para o módulo."} %>
       </div>
       <div class="field">
-        <%= f.input :description, placeholder: "Descrição ...", label: false %>
+        <%= f.input :description, placeholder: "Descrição", label: false %>
       </div>
 
       <div class="row">
@@ -20,7 +20,7 @@
             <% end %>
 
             <div class="links">
-              <%= link_to_add_association 'Add item', f, :items, { class: 'btn btn-success' }  %>
+              <%= link_to_add_association 'Novo Ítem', f, :items, { class: 'btn btn-primary btn-xs btn-block' }  %>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
       <br>
 
       <div class="field">
-        <%= f.input :footer, placeholder: "Rodapé do módulo... ", input_html: {:data => {toggle: "tooltip"}, title:"Aceita tags em HTML"}, label: false %>
+        <%= f.input :footer, placeholder: "Rodapé do Módulo", input_html: {:data => {toggle: "tooltip"}, title:"Aceita tags em HTML"}, label: false %>
       </div>
       <div class="field">
         <%= f.input :price, placeholder: "Preço do Módulo", label: false %>
@@ -37,7 +37,7 @@
     </div>
     <div class="panel-footer">
       <div class="text-right">
-        <%= link_to_remove_association "Delete Module", f, { class: 'btn btn-danger' } %>
+        <%= link_to_remove_association "Excluir Módulo", f, { class: 'btn btn-danger btn-xs' } %>
       </div>
     </div>
   </div>

@@ -2,12 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.association :component, collection: Order.all, as: :grouped_select, group_method: :components, group_label_method: :code_and_user %>
+    <%= f.association :user, :label => "Usuário" %>
+    <%= f.association :component, :label => "Componente", collection: Order.all, as: :grouped_select, group_method: :components, group_label_method: :code_and_user %>
     <%= f.input :body, label: 'Digite a sua mensagem' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <%= f.button :submit, "Enviar" , class: "btn btn-lg btn-block btn-success"  %>
+  	<% end %>
+	</div>

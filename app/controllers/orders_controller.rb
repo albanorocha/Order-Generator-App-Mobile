@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order, notice: 'Orçamento foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: 'Orçamento foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if new_order.save
-        format.html { redirect_to orders_path, notice: 'Order was successfully Duplicated.' }
+        format.html { redirect_to orders_path, notice: 'Orçamento foi duplicada com sucesso.' }
         format.json { render :index, status: :ok, location: orders_path}
       else
         format.html { render :edit }
@@ -106,7 +106,7 @@ class OrdersController < ApplicationController
 
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'Orçamento foi excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

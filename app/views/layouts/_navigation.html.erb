@@ -8,7 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://craosx.com/"><%= image_tag("logo.png", class: "", alt: "") %></a>
+      
+      <%= link_to home_path, class: "navbar-brand" do %>     
+        <%= image_tag("logo.png", class: "", alt: "CraosX") %>
+      </a>
+
+      <%end%>
+
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">

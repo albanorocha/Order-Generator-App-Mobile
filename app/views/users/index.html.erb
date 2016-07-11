@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
-    <h3>Users</h3>
-    <div class="column">
+  <div class="row centered">
+  <div class="col-sm-12 col-md-12">
+    <h2>Usuários</h2>
       <table class="table">
         <tbody>
           <% @users.each do |user| %>
@@ -11,9 +11,12 @@
           <% end %>
         </tbody>
       </table>
+
+
+<div class="text-center">
+    <%= link_to "Novo Usuário", new_user_path, class:"btn btn-lg btn-block btn-success" %>
+    <hr>
     </div>
   </div>
-  <div class="row">
-    <%= link_to "New User", new_user_path %>
-  </div>
 </div>
+    </div>

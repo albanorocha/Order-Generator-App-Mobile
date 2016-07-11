@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usuário foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     authorize @user
     respond_to do |format|
       if @user.update_with_password(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully Updated.' }
+        format.html { redirect_to @user, notice: 'Usuário foi atualizado com sucesso.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :edit }
@@ -55,9 +55,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if @user.update_attribute(:role, secure_params[:role])
-      redirect_to users_path, :notice => "User updated."
+      redirect_to users_path, :notice => "Usuário atualizado."
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to users_path, :alert => "Não é possível atualizar o Usuário."
     end
   end
 
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     authorize user
     user.destroy
-    redirect_to users_path, :notice => "User deleted."
+    redirect_to users_path, :notice => "Usuário foi excluído com sucesso"
   end
 
   private

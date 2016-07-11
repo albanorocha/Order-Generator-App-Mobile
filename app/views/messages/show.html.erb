@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row center">
+
+	<h2>Mensagem: <%= @message.component.title %></h2>
+	<hr>
 
 <p>
   <strong>User:</strong>
@@ -15,5 +19,14 @@
   <%= @message.body %>
 </p>
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+
+<div class="text-center">
+<hr>
+<%= link_to 'Voltar', messages_path, class: "btn btn-default" %>
+<%= link_to 'Visualizar', @message, class: "btn  btn-info"  %>
+
+</div>
+
+
+</div>
+</div>
