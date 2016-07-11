@@ -15,9 +15,9 @@ $(document).ready(function() {
 
 
 
-    $(".add_modulos a").
-      data("association-insertion-method", 'prepend').
-      data("association-insertion-node", $(".components_form") );
+   // $(".add_modulos a").
+   //   data("association-insertion-method", 'prepend').
+   //   data("association-insertion-node", $(".components_form") );
 
    // $(".add_images a").
    //   data("association-insertion-method", 'prepend').

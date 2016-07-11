@@ -6,45 +6,42 @@
 
         <div class="form-inputs">
           <div class="row">
-            <div class="col-lg-6">
-              <%= f.input :code, :label => "Código" %>
+            <div class="col-lg-3">
+              <%= f.input :code %>
             </div>
-            <div class="col-lg-6">
-              <%= f.association :user, :label => "Cliente", include_blank: "Selecione um Cliente" %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <%= f.input :starting_at, :label => "Emitido" %>
-            </div>
-            <div class="col-lg-6">
-              <%= f.input :ending_at, :label => "Validade" %>
-            </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
               <%= f.input :order_type, :collection => Order.order_types, :label_method => :first,
                 :value_method => :first , :label => "Tipo" ,:include_blank => false %>
             </div>
-            <div class="col-lg-2 col-lg-offset-1">
-              <br>
+            <div class="col-lg-5">
+              <%= f.association :user, include_blank: "Choose a User..." %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3">
+              <%= f.input :starting_at %>
+            </div>
+            <div class="col-lg-3">
+              <%= f.input :ending_at %>
+            </div>
+            <div class="col-lg-3">
               <%= f.input :enable %>
             </div>
 
             <div class="col-lg-3">
-              <br>
               <%= f.input :approved %>
             </div>
           </div>
         </div>
-</div>
 
         <div class="page-header">
           <h3>Images</h3>
         </div>
-        <div class="well row">
+        <div class="row">
         <div class="col-lg-12 add_images">
-          <%= link_to_add_association 'Nova Imagem', f, :order_images, { class: 'btn btn-info btn-xs btn-block' } %>
+          <%= link_to_add_association 'Nova Imagem', f, :order_images, { class: 'btn btn-success' } %>
         </div>
-    
+        </div>
         <br>
         <div class="row order_images_form">
             <%= f.fields_for :order_images do |order_image| %>
@@ -52,12 +49,14 @@
             <% end %>
         </div>
 
-    </div>
-    <div class="page-header">
-      <h3>Blocos</h3>
-    </div>
-        <div class="well row">
+
+        <hr>
+
+        <div class="row">
           <div class="col-md-12">
+            <div class="page-header">
+              <h3>Blocos</h3>
+            </div>
             <div id="blocks">
               <%= f.fields_for :blocks do |block| %>
                 <h3>Bloco #<%= block.index+1 %></h3>
@@ -66,7 +65,7 @@
               <% end %>
 
               <div class="block_links">
-                <%= link_to_add_association 'Novo Bloco', f, :blocks, { class: 'btn btn-primary btn-xs btn-block' } %>
+                <%= link_to_add_association 'Novo Bloco', f, :blocks, { class: 'btn btn-success' } %>
               </div>
             </div>
           </div>
@@ -77,13 +76,11 @@
         <div class="row">
         <div class="text-center">
         <div class="form-actions">
-          <hr>
-          <%= f.button :submit, "Enviar" ,   class: "btn-success col-lg-12 btn-lg" %>
-          <hr>
+          <%= f.button :submit,  class: "btn-warning col-lg-12 btn-lg" %>
         </div>
         </div>
         </div>
       <% end %>
-    
+    </div>
   </div>
 </div>
