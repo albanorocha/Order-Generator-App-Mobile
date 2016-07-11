@@ -39,6 +39,10 @@ class OrderPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def duplicate?
+    user.admin?
+  end
+
   def approve?
     user.admin? or (user == record.user)
   end

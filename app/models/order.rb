@@ -18,4 +18,34 @@ class Order < ActiveRecord::Base
   def code_and_user
     "#{code} - #{user.name unless user.nil?}"
   end
+
+  def dup_order
+    order = self
+
+    new_order = order.dup
+    new_order.code = "DUP-#{order.id}"
+    new_order.enable = false
+    new_order.approved = false
+    new_order.user = nil
+
+    order.blocks.each do |block|
+      new_block = block.dup
+
+      block.components.each do |component|
+        new_component = component.dup
+
+        component.items do |item|
+          new_item = item.dup
+          new_component.items << new_item
+        end
+
+        new_block.components << new_component
+      end
+
+      new_order.blocks << new_block
+    end
+
+
+    new_order
+  end
 end

@@ -13,15 +13,15 @@
       <th>Order type</th>
       <th>Habilitado</th>
       <th>Aprovado</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.user.name %></td>
-        <td><%= order.code %></td>
+        <td><%= order.user.name if !order.user.nil?%></td>
+        <td><%= order.code if !order.code.empty? %></td>
         <td><%= order.starting_at %></td>
         <td><%= order.ending_at %></td>
         <td><%= order.order_type.humanize %></td>
@@ -41,6 +41,7 @@
         </td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Duplicate', duplicate_order_path(order), method: :post, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

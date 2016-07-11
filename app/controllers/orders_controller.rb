@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   after_action :verify_authorized
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :approve]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :approve, :duplicate]
 
   # GET /orders
   # GET /orders.json
@@ -58,6 +58,24 @@ class OrdersController < ApplicationController
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
+      else
+        format.html { render :edit }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /orders/1
+  # PATCH/PUT /orders/1.json
+  def duplicate
+    authorize @order
+
+    new_order = @order.dup_order
+
+    respond_to do |format|
+      if new_order.save
+        format.html { redirect_to orders_path, notice: 'Order was successfully Duplicated.' }
+        format.json { render :index, status: :ok, location: orders_path}
       else
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }

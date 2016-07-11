@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       put 'approve'
       patch 'approve'
+      post 'duplicate'
     end
   end
   # root to: 'visitors#index'
