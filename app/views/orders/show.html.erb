@@ -55,6 +55,26 @@
 </div>
 
 <div id="blocks" class="container">
+  <div class="page-header">
+    <h3>  Mockups  </h3>
+  </div>
+
+
+  <% @order.order_images.each.with_index do |image, i| %>
+    <% if i%4 == 0 or i == 0 %>
+    <div class="row">
+    <% end %>
+
+    <%= link_to "#{image.mockup.slider.url}",class: "col-md-3", :data => {toggle: "lightbox", gallery: "mockup"} do %>
+      <%= image_tag image.mockup.thumb.url, class: "thumbnail img-responsive" %>
+    <% end %>
+
+    <% if (i+1)%4 == 0 or (i+1) == @order.order_images.size %>
+    </div>
+    <% end %>
+  <%end %>
+
+
   <% @order.blocks.each do |block| %>
     <div class="page-header">
       <h3> <%= block.name %>  </h3>
@@ -155,5 +175,3 @@
     </div>
   <% end %>
 </div>
-
-

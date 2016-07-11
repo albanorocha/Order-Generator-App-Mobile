@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require cocoon
+//=require lightbox-bootstrap
 //= require_tree ./order

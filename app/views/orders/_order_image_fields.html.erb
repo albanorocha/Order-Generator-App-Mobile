@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="field">
+        <%= f.input :mockup, as: :image_preview, input_html: {preview_version: :thumb} %>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="text-right">
+        <%= link_to_remove_association "Delete Image", f, { class: 'btn btn-danger' } %>
+      </div>
+    </div>
+  </div>
+</div>

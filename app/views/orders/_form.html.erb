@@ -15,6 +15,18 @@
           <%= f.input :approved %>
         </div>
         <div class="row">
+          <div class="col-md-12">
+            <h3>Images</h3>
+              <%= f.fields_for :order_images do |order_image| %>
+                <%= render 'order_image_fields', f: order_image %>
+              <% end %>
+
+              <div class="links">
+                <%= link_to_add_association 'Nova Imagem', f, :order_images, { class: 'btn btn-success' } %>
+              </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <h3>Blocos</h3>
             <div id="blocks">

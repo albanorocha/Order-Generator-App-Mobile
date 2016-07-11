@@ -16,3 +16,4 @@
 //= require cocoon
 //= require orders
 //= require google_analytics
+//=require lightbox-bootstrap

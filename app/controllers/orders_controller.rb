@@ -104,6 +104,6 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:code, :enable, :approved, :starting_at, :ending_at, :order_type, :user_id,
         blocks_attributes: [:id, :name, :description, :_destroy, components_attributes: [:id,
           :title, :head, :description, :footer, :price, :_destroy, items_attributes: [:id, :title,
-            :subtitle, :description, :price, :_destroy]] ])
+            :subtitle, :description, :price, :_destroy]] ], order_images_attributes: [:id, :mockup, :_destroy])
     end
 end

@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: b31f7ce006bade550be0ad946d0b993b799358e3
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +48,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.6.1)
       execjs
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -51,6 +61,9 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.4)
+    cloudinary (1.2.0)
+      aws_cf_signer
+      rest-client
     cocoon (1.2.6)
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -68,6 +81,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20160615)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     font-awesome-rails (4.6.3.0)
@@ -75,6 +90,8 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (3.0.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -86,6 +103,7 @@ GEM
     json (1.8.3)
     kgio (2.10.0)
     libv8 (3.16.14.15)
+    lightbox-bootstrap-rails (3.3.0.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -93,9 +111,11 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    netrc (0.11.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -142,6 +162,10 @@ GEM
     ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rest-client (2.0.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -152,6 +176,10 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simple_form_fancy_uploads (0.2.0)
+      carrierwave
+      rails (>= 4.0.0)
+      simple_form (~> 3.1)
     spring (1.7.1)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
@@ -170,6 +198,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     unicorn (5.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -188,6 +219,8 @@ DEPENDENCIES
   better_errors
   bootstrap-sass
   byebug
+  carrierwave!
+  cloudinary
   cocoon
   coffee-rails (~> 4.1.0)
   devise
@@ -195,6 +228,8 @@ DEPENDENCIES
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  lightbox-bootstrap-rails
+  mini_magick
   pg
   pundit
   quiet_assets
@@ -203,6 +238,7 @@ DEPENDENCIES
   rails_layout
   sass-rails (~> 5.0)
   simple_form
+  simple_form_fancy_uploads
   spring
   therubyracer
   uglifier (>= 1.3.0)
@@ -213,4 +249,4 @@ RUBY VERSION
    ruby 2.2.1p85
 
 BUNDLED WITH
-   1.12.4
+   1.12.5
