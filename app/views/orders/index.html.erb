@@ -1,18 +1,25 @@
-<div class="container">
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Orders</h1>
-
-<table class="table table-bordered order-list">
+<div id="home" class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="page-header">
+  <h3>Bem Vindo: <%= current_user.name %></h3>
+</div>
+<h4> Orçamentos </h4>
+<div class="table-responsive">
+<table class="table table-hover table-condensed table-striped order-list", style="background:#fff">
   <thead>
     <tr>
+      <% if current_user.try(:admin?) %>
       <th>User</th>
+      <% end %>
       <th>Code</th>
       <th>Starting at</th>
       <th>Ending at</th>
       <th>Order type</th>
-      <th>Habilitado</th>
-      <th>Aprovado</th>
+      <% if current_user.try(:admin?) %>
+      <th class="text-center">Habilitado</th>
+      <th class="text-center">Aprovado</th>
+      <%end%>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -20,11 +27,14 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <% if current_user.try(:admin?) %>
         <td><%= order.user.name if !order.user.nil?%></td>
+        <%end%>
         <td><%= order.code if !order.code.empty? %></td>
         <td><%= order.starting_at %></td>
         <td><%= order.ending_at %></td>
         <td><%= order.order_type.humanize %></td>
+        <% if current_user.try(:admin?) %>
         <td class="text-center">
         <% if order.enable %>
           <i class="enabled fa fa-eye" aria-hidden="true"> </i>
@@ -39,16 +49,40 @@
           <i class="disabled fa fa-times-circle-o" aria-hidden="true"> </i>
         <% end %>
         </td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Duplicate', duplicate_order_path(order), method: :post, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td class="text-center">
+          <%= link_to order, title: "Ver Orçamento" do  %>
+          <i class="enabled fa fa-file-text-o" aria-hidden="true"> </i>
+          <% end %>
+        </td>
+        <% if current_user.try(:admin?) %>
+        <td class="text-center">
+          <%= link_to edit_order_path(order), title: "Editar" do%>
+            <i class="danger fa fa-pencil-square-o" aria-hidden="true"> </i>
+          <% end %>
+        </td>
+        <td class="text-center">
+          <%= link_to duplicate_order_path(order), title: "Duplicar", method: :post, data: { confirm: 'Are you sure?' } do%>
+            <i class="warning fa fa-files-o" aria-hidden="true"> </i>
+          <% end %>
+        </td>
+        <td class="text-center">
+          <%= link_to order, title: "Deletar", method: :delete, data: { confirm: 'Are you sure?' }  do %>
+            <i class="disabled fa fa-times" aria-hidden="true"> </i>
+          <% end %>
+        </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
 </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <%= link_to 'New Order', new_order_path, class: "btn btn-success" %>
+  </div>
+</div>
+</div>
+
