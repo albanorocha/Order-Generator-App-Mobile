@@ -94,12 +94,14 @@
             <div class="panel-heading">
               <h3>
                 <%= component.title %>
-                <div class="pull-right">
-                <%= link_to new_message_path(user: current_user, component: component), title: "Envie-nos uma menssagem se tiver dúvida ou algum comentário sobre o módulo.", class: "btn btn-default btn-xs " do %>
-                  <i class="fa fa-commenting-o" aria-hidden="true"> </i> Mensagem
-                <% end %>
-                </div>    
               </h3>
+
+              <div class="pull-right">
+              <%= link_to new_message_path(user: current_user, component: component), title: "Envie-nos uma menssagem se tiver dúvida ou algum comentário sobre o módulo.", class: "btn btn-default btn-xs " do %>
+                <i class="fa fa-commenting-o" aria-hidden="true"> </i> Mensagem
+              <% end %>
+              </div>    
+
             </div>
 
             <div class="panel-body">
